@@ -37,6 +37,7 @@ public class IndexServlet extends HttpServlet {
 		EntityManager em = DBUtil.createEntityManager();
 		List<Task> tasks = em.createNamedQuery("getAllTasks",Task.class).getResultList();
 
+		//DBの行数を表示
 		response.getWriter().append(Integer.valueOf(tasks.size()).toString());
 		em.close();
 
