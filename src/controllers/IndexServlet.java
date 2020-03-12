@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,10 +38,16 @@ public class IndexServlet extends HttpServlet {
 		EntityManager em = DBUtil.createEntityManager();
 		List<Task> tasks = em.createNamedQuery("getAllTasks",Task.class).getResultList();
 
-		//DBの行数を表示
-		response.getWriter().append(Integer.valueOf(tasks.size()).toString());
 		em.close();
+		/*DBから取得したタスク一覧(tasks)をリクエストスコープに入れて
+		 *"tasks"という名前にする。*/
+		request.setAttribute("tasks", tasks);
 
+		/*ServletからJSPを表示させる
+		 * requestの内容を指定のJSPに転送させるオブジェクトを作って・・・*/
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/index.jsp");
+		//指定のJSPへとばす
+		rd.forward(request, response);
 
 	}
 
