@@ -43,12 +43,12 @@ public class Task {
 		this.id = id;
 	}
 
-	public Timestamp getCreted_at() {
+	public Timestamp getCreated_at() {
 		return created_at;
 	}
 
-	public void setCreted_at(Timestamp creted_at) {
-		this.created_at = creted_at;
+	public void setCreated_at(Timestamp created_at) {
+		this.created_at = created_at;
 	}
 
 	public Timestamp getUpdated_at() {
