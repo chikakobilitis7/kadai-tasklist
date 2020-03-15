@@ -11,6 +11,7 @@
     に心が揺らいだのはなぜ？</p>
 
     <p><a href="<c:url value='/index' />">全部見てみよう</a></p>
+    <p><a href="<c:url value='/edit'  />"id="${task.id}">内容を直す</a></p>
 
     </c:param>
 </c:import>
