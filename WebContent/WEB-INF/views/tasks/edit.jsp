@@ -4,7 +4,7 @@
     <c:param name="content">
       <h2>${task.id}番の修正</h2>
 
-    <form method="POST" action="<c:url value='/update' />">
+     <form method="POST" action="${pageContext.request.contextPath}/update">
         <c:import url="_form.jsp" />
     </form>
     <p><a href="<c:url value='/index' />">全部見てみよう</a></p>
