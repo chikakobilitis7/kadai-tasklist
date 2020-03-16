@@ -8,5 +8,16 @@
         <c:import url="_form.jsp" />
     </form>
     <p><a href="<c:url value='/index' />">全部見てみよう</a></p>
+    <p><a href="#" onclick="confirmDestroy();">なかったことにする</a></p>
+    <form method="POST" action="<c:url value='/destroy ' />">
+       <input type="hidden" name="_token" value="${_token}" />
+    </form>
+    <script>
+    function confirmDestroy(){
+    if(confirm("なかったことにするの？後悔しない？")){
+       document.forms[1].submit();
+       }
+  }
+    </script>
     </c:param>
 </c:import>
